@@ -18,7 +18,7 @@ jobs:
       - name: Publish place
         uses: filiptibell/roblox-place-publish-action@v2.1
         with:
-          universe-id: ${{ vars.ROBLOX_UNIVERSE_ID }}
-          place-id: ${{ vars.ROBLOX_PLACE_ID }}
+          universe-id: ${{ secrets.ROBLOX_UNIVERSE_ID }}
+          place-id: ${{ secrets.ROBLOX_PLACE_ID }}
           api-key: ${{ secrets.ROBLOX_API_KEY }}
           path: 'place.rbxl'
