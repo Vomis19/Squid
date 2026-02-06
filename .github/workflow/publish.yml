@@ -22,3 +22,4 @@ jobs:
           place-id: ${{ vars.ROBLOX_PLACE_ID }}
           api-key: ${{ secrets.ROBLOX_API_KEY }}
           path: 'place.rbxl'
+# Squid CI test
