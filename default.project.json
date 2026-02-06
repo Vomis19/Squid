@@ -1,0 +1,13 @@
+{
+  "name": "SquidRNGGame",
+  "tree": {
+    "$className": "DataModel",
+    "ServerScriptService": {
+      "$className": "ServerScriptService",
+      "Main": {
+        "$className": "Script",
+        "$path": "src/server/Main.server.luau"
+      }
+    }
+  }
+}
