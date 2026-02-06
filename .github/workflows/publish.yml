@@ -16,9 +16,9 @@ jobs:
       - run: rojo build default.project.json -o place.rbxl
 
       - name: Publish place
-        uses: filiptibell/roblox-place-publish-action@v2.1
+        uses: boatbomber/publish-roblox-place@v1.1
         with:
+          api-key: ${{ secrets.ROBLOX_API_KEY }}
           universe-id: ${{ secrets.ROBLOX_UNIVERSE_ID }}
           place-id: ${{ secrets.ROBLOX_PLACE_ID }}
-          api-key: ${{ secrets.ROBLOX_API_KEY }}
-          path: 'place.rbxl'
+          place-file: 'place.rbxl'
