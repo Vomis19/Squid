@@ -12,10 +12,18 @@ jobs:
 
       - name: Install Rojo via Aftman
         uses: ok-nick/setup-aftman@v0.4.2
-      - run: aftman install
-      - run: rojo build default.project.json -o place.rbxl
+
+      - name: Install tools
+        run: |
+          aftman install
+          rojo --version
+          curl --version
+
+      - name: Build place file
+        run: rojo build default.project.json -o place.rbxl
 
       - name: Publish place via Open Cloud
+        shell: bash
         run: |
           echo "Publishing place..."
           curl -X POST "https://apis.roblox.com/universes/v1/${{ secrets.ROBLOX_UNIVERSE_ID }}/places/${{ secrets.ROBLOX_PLACE_ID }}/versions" \
