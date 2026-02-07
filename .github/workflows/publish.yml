@@ -15,10 +15,10 @@ jobs:
       - run: aftman install
       - run: rojo build default.project.json -o place.rbxl
 
-      - name: Publish place
-        uses: boatbomber/publish-roblox-place@v1.1
-        with:
-          api-key: ${{ secrets.ROBLOX_API_KEY }}
-          universe-id: ${{ secrets.ROBLOX_UNIVERSE_ID }}
-          place-id: ${{ secrets.ROBLOX_PLACE_ID }}
-          place-file: 'place.rbxl'
+      - name: Publish place via Open Cloud
+        run: |
+          echo "Publishing place..."
+          curl -X POST "https://apis.roblox.com/universes/v1/${{ secrets.ROBLOX_UNIVERSE_ID }}/places/${{ secrets.ROBLOX_PLACE_ID }}/versions" \
+            -H "Content-Type: application/octet-stream" \
+            -H "x-api-key: ${{ secrets.ROBLOX_API_KEY }}" \
+            --data-binary "@place.rbxl"
